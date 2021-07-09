@@ -1,0 +1,16 @@
+@import "./variables.scss";
+
+@mixin font-bold($font-size) {
+  font-weight: 700;
+  font-size: $font-size;
+}
+
+@mixin font-medium($font-size) {
+  font-weight: 600;
+  font-size: $font-size;
+}
+
+@mixin font-regular($font-size) {
+  font-weight: 400;
+  font-size: $font-size;
+}

@@ -1,0 +1,263 @@
+* {
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@font-face {
+  font-family: "TT Norms";
+  src: local("TT Norms Medium"), local("/fonts/TTNorms-Medium"),
+    url("/fonts/TTNorms-Medium.woff") format("woff");
+  font-weight: 500;
+  font-display: swap;
+}
+@font-face {
+  font-family: "TT Norms";
+  src: local("TT Norms Regular"), local("/fonts/TTNorms-Regular"),
+    url("/fonts/TTNorms-Regular.woff") format("woff");
+  font-weight: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "TT Norms";
+  src: local("TT Norms Bold"), local("/fonts/TTNorms-Bold"),
+    url("/fonts/TTNorms-Bold.woff") format("woff");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "TT Norms";
+  src: local("TT Norms ExtraBold"), local("/fonts/TTNorms-ExtraBold"),
+    url("/fonts/TTNorms-ExtraBold.woff") format("woff");
+  font-weight: 800;
+  font-display: swap;
+}
+
+html {
+  color: #ffffff;
+  font-size: 16px;
+  overflow-x: hidden;
+
+  // @include breakpoint('desktop_sm') {
+  //   font-size: 15px;
+  // }
+  // @include breakpoint('tablet_lg') {
+  //   font-size: 14px;
+  // }
+  ::-webkit-scrollbar {
+    width: 0px; /* Remove scrollbar space */
+    background: transparent; /* Optional: just make scrollbar invisible */
+  }
+  scrollbar-width: none;
+  /* Optional: show position indicator in red */
+  ::-webkit-scrollbar-thumb {
+    background: transparent;
+  }
+}
+
+body {
+  scroll-behavior: smooth;
+  -webkit-scroll-behavior: smooth;
+  min-height: 100vh;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+a,
+ul[class],
+li[class] {
+  padding: 0;
+  text-decoration: none;
+  list-style: none;
+}
+
+button {
+  background: none;
+  border: none;
+  // cursor: pointer;
+}
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+input[type="search"]::-ms-clear {
+  /* нестандартный псевдоэлемент IE */
+  display: none;
+}
+input[type="search"]::-webkit-search-cancel-button {
+  /* нестандартный псевдоэлемент WebKit/Blink, но Esc по-прежнему будет удалять раннее введённый текст */
+  display: none;
+}
+
+.hover {
+  &:hover {
+    border-color: #47deff;
+    color: #47deff;
+  }
+}
+.d-flex {
+  display: flex;
+}
+
+.flex {
+  &-row {
+    flex-direction: row;
+    &-reverse {
+      flex-direction: row-reverse;
+    }
+  }
+  &-column {
+    flex-direction: column;
+    &-reverse {
+      flex-direction: column-reverse;
+    }
+  }
+  &-wrap {
+    flex-wrap: wrap;
+  }
+}
+
+.justify {
+  &-space-between {
+    justify-content: space-between;
+  }
+  &-space-around {
+    justify-content: space-around;
+  }
+  &-space-evenly {
+    justify-content: space-evenly;
+  }
+  &-start {
+    justify-content: flex-start;
+  }
+  &-end {
+    justify-content: flex-end;
+  }
+}
+//page transition animation
+// .page-enter-active,
+// .page-leave-active {
+//   transform: translateX(0);
+//   transition: all 0.3s ease-in-out;
+// }
+// .page-enter {
+//   transform: translateX(100%);
+// }
+
+// .page-leave-active {
+//   transform: translateX(-100%);
+// }
+
+// text mark color
+.mark {
+  &--red {
+    color: #fd5055;
+  }
+
+  &--black {
+    background-color: #191919;
+    color: #ffffff;
+  }
+  &--dark-grey {
+    color: #4b4e6d;
+  }
+}
+
+br.mobile {
+  display: none;
+  // @include breakpoint("mobile") {
+  //   display: block;
+  // }
+}
+br.tablet {
+  display: none;
+  // @include breakpoint("tablet_lg") {
+  //   display: block;
+  // }
+  // @include breakpoint("mobile") {
+  //   display: none;
+  // }
+}
+
+$headings: (
+  //90px
+    "h1": 5rem,
+  //40px
+    "h2": 2.5rem,
+  //12px
+    "h3": 0.75rem
+);
+
+@each $heading, $font_size in $headings {
+  #{$heading} {
+    @if ($heading == "h1") {
+      @include font-regular($font_size);
+    }
+    @if ($heading == "h2") {
+      @include font-regular($font_size);
+    }
+    @if ($heading == "h3") {
+      @include font-regular($font_size);
+    }
+  }
+}
+
+.text {
+  &-simple {
+    font-size: 1em;
+    &--bold {
+      font-weight: 500;
+      @include breakpoint("mobile") {
+        font-size: 18px;
+      }
+    }
+    @include breakpoint("mobile") {
+      font-size: 18px;
+    }
+  }
+
+  &-lg {
+    //24px
+    font-size: 1.25rem;
+    font-weight: 500;
+  }
+
+  &-md {
+    //20px
+    font-size: 1.25rem;
+    font-weight: 400;
+  }
+
+  &-sm {
+    //18px
+    font-size: 1.125rem;
+    font-weight: 400;
+  }
+  &-xs {
+    //12px
+    font-size: 0.75rem;
+    font-weight: 400;
+  }
+}
+
+p,
+a,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  @include breakpoint("mobile") {
+    font-size: 2.125rem;
+  }
+}
