@@ -2,6 +2,9 @@
 
 > Nuxt.js project
 
+# Figma
+> https://www.figma.com/file/WO8RI1f9fnzOpAo3Ux8Fkz/Waifu-(%D0%BC%D0%BE%D1%8F)?node-id=485%3A218
+
 ## Build Setup
 
 ``` bash
